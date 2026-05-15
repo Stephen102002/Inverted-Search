@@ -1,0 +1,44 @@
+NAME : Akhil T Stephen
+START_DATE : 23-02-2026
+END_DATE : 28-02-2026
+TITLE : Inverted Search
+
+OVERVIEW:
+The Inverted Search project is a C-based command-line application designed to index and search words
+efficiently across multiple text files. It constructs an inverted index using hash tables and linked 
+lists, mapping each unique word to the list of files and positions where it appears. This enables fast, 
+memory-efficient full-text search and retrieval, even for large datasets.
+
+FEATURES:
+• Builds an inverted index from multiple input text files
+• Supports fast word-based search across all indexed files
+• Displays all occurrences of a word, including file names and positions
+• Handles case-insensitive and duplicate word entries
+• Efficient memory usage with dynamic data structures
+• Option to update the index with new files or remove files from the index
+
+USAGE:
+	Command: ./a.out <file1> <file2> ... <fileN>
+	Example: ./a.out f1.txt f2.txt f3.txt
+	After indexing, search for a word:
+	Enter word to search: example
+	Result: Found in f1.txt (line 3), f2.txt (line 7), f3.txt (line 2)
+	Additional commands allow updating or deleting files from the index.
+  
+IMPLEMENTATION:
+The project uses a hash table where each bucket contains a linked list of nodes representing unique words.
+Each word node maintains a list of file entries, each recording the file name and all line numbers where 
+the word appears. The index is built by parsing each file, tokenizing words, and updating the hash table 
+accordingly. Search queries traverse the hash table for fast lookup and display all relevant file and position 
+information.
+
+FILE STRUCTURE:
+• main.c - Entry point, argument parsing, menu handling, and core logic
+• create.c - Functions to build the inverted index from files
+• display.c - Functions to display the index and search results
+• save.c - Functions to save and load the index from disk
+• update.c - Functions to add or remove files from the index
+• validate.c - Input validation and file checking utilities
+• search.h - Header file with data structure definitions and function prototypes
+• f1.txt, f2.txt, f3.txt, sfile.txt - Sample input text files
+
